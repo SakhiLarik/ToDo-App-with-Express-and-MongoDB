@@ -1,0 +1,100 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+h1.title {
+  box-shadow: 0 5px 5px #ddd;
+  border-bottom: 1px solid darkblue;
+  background-color: rgb(213, 234, 253);
+  color: darkblue;
+  text-align: center;
+  padding: 15px;
+  font-size: 45px;
+}
+.form.add_todo {
+  padding: 10px;
+  margin: 35px 10px;
+  display: flex;
+  justify-content: center;
+}
+.form .form-control {
+  width: 500px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 30px;
+  color: darkblue;
+  background: #fff;
+  border: 2px solid darkblue;
+  box-shadow: 0;
+  font-size: 20px;
+  outline: none;
+}
+.form div {
+  margin: 0 4px;
+}
+.form .btn-submit .btn {
+  transition: all 0.2s ease-in;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 25px;
+  background: darkblue;
+  color: #fff;
+  cursor: pointer;
+  border: 2px solid #fff;
+  font-weight: 900;
+}
+.form .btn-submit .btn:hover {
+  transition: all 0.2s ease-in;
+  color: darkblue;
+  transform: scale(1.05);
+  background-color: #fff;
+  border: 1px solid darkblue;
+}
+.todo_container {
+  display: flex;
+  justify-content: center;
+}
+.todo_container .todos p {
+  transition: all 0.15s ease-in;
+  margin: 2px 0;
+  color: darkblue;
+  background-color: aliceblue;
+  padding: 15px;
+  font-size: 15px;
+  width: 600px;
+  text-align: left;
+  z-index: 0;
+}
+.todo_container .todos p:hover {
+  color: tomato;
+  cursor: pointer;
+  box-shadow: 0 0 5px 10px #fff, 0 0 15px rgb(213, 234, 253);
+  transform: scale(1.09);
+  transition: all 0.15s ease-in;
+}
+
+.todo_container .todos p:hover::before {
+    content: "Click To Delete";
+    background: aliceblue;
+    position: absolute;
+    width: 97%;
+}
+.no-todos{
+  color: tomato;
+  background-color: aliceblue;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px 30px;
+  border: 2px solid tomato;
+  border-radius: 10px;
+  box-shadow: 0 0 3px 1px orange,inset 0 0 4px #fff;
+  font-size: 25px;
+  user-select: none;
+}
