@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/css/style.css" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Todo App</h1>
+    </div>
+    <div class="container">
+      <form action="/todo" class="form add_todo" method="post">
+        <div class="form-group">
+          <input name="todo" type="text" class="form-control" placeholder="Add Todo..." autocomplete="off" autofocus />
+        </div>
+        <div class="btn-submit">
+          <button type="submit" class="btn">+</button>
+        </div>
+      </form>
+    </div>
+    <div class="todo_container">
+        <div class="todos"></div>
+    </div>
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET","/todo",true);
+        xhr.onload = function(){
+            let data = JSON.parse(this.responseText);
+            if( data.length < 1){
+              let para = document.createElement("h3");
+              para.classList.add("no-todos");
+                para.innerText = "No Todos at the movement";
+                document.querySelector(".todos").appendChild(para);
+            }
+            data.forEach((todo)=>{
+                let para = document.createElement("p");
+                para.innerText = todo.todo;
+                document.querySelector(".todos").appendChild(para);
+                para.addEventListener("click",()=>{
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("GET",`/todo/delete/${todo._id}`,true);
+                    xhr.send();
+                    window.location = window.location;
+                })
+            });
+        }
+        xhr.send();
+    </script>
+  </body>
+</html>
